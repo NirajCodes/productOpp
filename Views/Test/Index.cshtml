@@ -1,0 +1,74 @@
+﻿@model productOpp.EDM.tblproduct
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "test", FormMethod.Post , new { enctype = "multipart/form-data" }))
+{
+<table style="width:100%">
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+    </style>
+    <tr>
+        <td>
+            Product name
+        </td>
+        <td>
+            @Html.TextBoxFor(c => c.porduct_name)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Product price
+        </td>
+        <td>
+            @Html.TextBoxFor(c => c.product_price)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Product Description
+        </td>
+        <td>
+            @Html.TextAreaFor(c => c.product_description)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Product Date
+        </td>
+        <td>
+            @Html.TextBoxFor(c => c.product_date, new { @type = "date" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Product photo
+        </td>
+        <td>
+            <input type="file" name="file" value="file" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="submit" value="Registration" />
+        </td>
+        <td>
+            <label>
+                @ViewBag.msg
+            </label>
+        </td>
+    </tr>
+</table>
+}

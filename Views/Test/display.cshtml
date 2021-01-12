@@ -1,0 +1,48 @@
+﻿@model List<productOpp.EDM.tblproduct>
+@{
+    ViewBag.Title = "display";
+}
+
+<h2>Display</h2>
+
+
+@using (Html.BeginForm())
+{
+    <style>
+        table, tr, td {
+            border: 1px solid black;
+        }
+</style>
+    <table style="width:100%" class="table">
+
+        <tr>
+            <td>Product Name</td>
+            <td>Product Description </td>
+            <td>Product Price</td>
+            <td>Product Date</td>
+            <td>Product Photo</td>
+            <td>click for edit</td>
+            <td>click for delete</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(c => item.porduct_name)</td>
+                <td>@item.product_description</td>
+                <td>@item.product_price</td>
+                <td>@item.product_date</td>
+                <td><img src="~/images/@item.product_photo" width="100" height="100" /></td>
+
+                <td>
+                    @Html.ActionLink("edit", "edit", new { id = item.poduct_id })
+                </td>
+                <td>
+                    @Html.ActionLink("delete", "delete", new { id = item.poduct_id })
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+}

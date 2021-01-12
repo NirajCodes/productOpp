@@ -1,0 +1,56 @@
+﻿@model productOpp.EDM.tblproduct
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("edit", "Test", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr>
+            <td>product name</td>
+            <td>
+                @Html.HiddenFor(c => c.poduct_id)
+                @Html.TextBoxFor(c => c.porduct_name)
+            </td>
+        </tr>
+
+        <tr>
+            <td>product despcription</td>
+            <td>@Html.TextAreaFor(c => c.product_description)</td>
+        </tr>
+
+        <tr>
+            <td>product price</td>
+            <td>@Html.TextBoxFor(c => c.product_price)</td>
+        </tr>
+
+        <tr>
+            <td>product date</td>
+            <td>@Html.TextBoxFor(c => c.product_date)</td>
+        </tr>
+
+        <tr>
+            <td>product photo</td>
+            <td>
+                <img src="~/images/@Model.product_photo" width="100" height="100" />
+                <input type="file" name="file" id="file" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" value="Registration" />
+            </td>
+
+            <td>
+                <label>
+                    @ViewBag.msg
+                </label>
+            </td>
+        </tr>
+
+
+    </table>
+
+}
